@@ -9,6 +9,7 @@ const PaginationBar = (props) => {
                 pageRangeDisplayed={0}
                 marginPagesDisplayed={1}
                 onPageChange={props.handlePageClick}
+                forcePage={props.forcePage}
                 breakClassName={'page-item'}
                 breakLinkClassName={'page-link'}
                 containerClassName={'pagination'}

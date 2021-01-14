@@ -53,7 +53,6 @@ const HomePage = () => {
     }
     const handleSearchFormSubmit = (event) => {
         event.preventDefault();
-        console.log('set query');
         setQuery(searchInput);
         setPageNum(1);
     };
@@ -69,10 +68,10 @@ const HomePage = () => {
                     <input type="submit" value="Search" className="btn btn-primary mx-2" />
                 </div>
             </form>
-            <PaginationBar pageCount={totalPageNum} handlePageClick={handlePageClick}/>
+            <PaginationBar pageCount={totalPageNum} handlePageClick={handlePageClick} forcePage={pageNum-1}/>
             {hasError && <h1>{errorMsg}</h1>}
             <CardDeck>
-                {!loading && (books.map(b => <BookCard title={b.title} author={b.author} key={b.id} id={b.id}/>))}
+                {!loading && (books.map(b => <BookCard title={b.title} author={b.author} key={b.id} id={b.id} img={b.imageLink}/>))}
             </CardDeck>
         </Container>
     )
