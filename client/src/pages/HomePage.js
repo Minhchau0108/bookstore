@@ -3,13 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PaginationBar from '../components/PaginationBar';
 import BookCard from '../components/BookCard'
 import { CardDeck, Container } from 'react-bootstrap';
-
+import { useHistory } from 'react-router-dom';
+const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 const HomePage = () => {
     const totalPageNum = 10;
     const limit = 10;
-    const BACKEND_API = process.env.REACT_APP_BACKEND_API;
-
     const [books, setBooks] = useState([])
     const [loading, setLoading] = useState(false);
     const [pageNum, setPageNum] = useState(1);
@@ -18,6 +17,8 @@ const HomePage = () => {
 
     const[searchInput, setSearchInput] = useState('');
     const[query, setQuery] = useState('');
+
+    const history = useHistory();
 
     useEffect(() => {
         async function fetchData() {
@@ -55,6 +56,8 @@ const HomePage = () => {
         event.preventDefault();
         setQuery(searchInput);
         setPageNum(1);
+        history.push({search: `?q=${searchInput}`})
+
     };
     const handlePageClick=(page)=>{
         console.log('handlepageclick');

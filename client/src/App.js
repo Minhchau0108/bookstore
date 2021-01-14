@@ -7,7 +7,6 @@ import NotFoundPage from './pages/NotFoundPage'
 import ReadingPage from './pages/ReadingPage'
 import PublicNavbar from './components/PublicNarbar'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 function App() {
   return (
